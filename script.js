@@ -2,10 +2,24 @@
 
 const modal = document.querySelector(".modal");
 const overlay = document.querySelector(".overlay");
-const btn = document.querySelector(".close-modal");
+const btnCloseModal = document.querySelector(".close-modal");
 const btnsOpenModal = document.querySelectorAll(".show-modal");
 
-console.log(btnsOpenModal);
+const openModal = function () {
+  modal.classList.remove("hidden");
+  overlay.classList.remove("hidden");
+};
+
+const closeModal = function () {
+  modal.classList.add("hidden");
+  overlay.classList.add("hidden");
+};
 
 for (let i = 0; i < btnsOpenModal.length; i++)
-  console.log(btnsOpenModal[i].textContent);
+  btnsOpenModal[i].addEventListener("click", openModal);
+
+// Adds the hidden class so the windows close when clicking the X
+btnCloseModal.addEventListener("click", closeModal);
+
+// Adds the hidden class so the windows close when clicking the overlay
+overlay.addEventListener("click", closeModal);
