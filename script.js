@@ -23,3 +23,12 @@ btnCloseModal.addEventListener("click", closeModal);
 
 // Adds the hidden class so the windows close when clicking the overlay
 overlay.addEventListener("click", closeModal);
+
+// Adds event listener to keyboard key press
+document.addEventListener('keydown', function(e){
+  // console.log(e.key);
+
+  if(e.key === 'Escape' && !modal.classList.contains('hidden')) {
+      closeModal(); 
+  }
+});
